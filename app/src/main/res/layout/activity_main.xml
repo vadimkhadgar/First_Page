@@ -50,7 +50,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:layout_margin="8dp"
-                    android:src="@drawable/ic_baseline_send_24"
+                    android:src="@drawable/ic_send_custom"
                     tools:ignore="ContentDescription" />
 
             </RelativeLayout>
