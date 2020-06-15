@@ -17,7 +17,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="45dp"
             android:background="@android:color/white">
 
             <RelativeLayout
@@ -71,6 +71,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:background="@android:color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -145,6 +146,12 @@
                     tools:showIn="@layout/item_story" />
             </LinearLayout>
 
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:background="?android:attr/listDivider" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewNews"
                 android:layout_width="match_parent"
@@ -162,7 +169,7 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="45dp"
         app:menu="@menu/menu_navigation"
         android:elevation="1dp"
         app:labelVisibilityMode="unlabeled"
