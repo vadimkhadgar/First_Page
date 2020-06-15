@@ -10,7 +10,7 @@
         android:layout_width="60dp"
         android:layout_margin="8dp"
         android:src="@drawable/ic_baseline_supervised_user_circle_24"
-        android:layout_height="60dp"/>
+        android:layout_height="60dp" />
 
     <TextView
         android:id="@+id/tvName"
@@ -23,6 +23,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

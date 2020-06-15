@@ -1,4 +1,4 @@
-package com.mobile.instagramfirstpage
+package com.mobile.instagramfirstpage.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

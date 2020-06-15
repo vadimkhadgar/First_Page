@@ -1,14 +1,17 @@
-package com.mobile.instagramfirstpage
+package com.mobile.instagramfirstpage.adapters
 
 import android.view.ViewGroup
 import com.mobile.instagramfirstpage.databinding.ItemStoryBinding
+import com.mobile.instagramfirstpage.model.Story
 
 class StoriesAdapter(
     private val values: List<Story>
 ) : BaseAdapterCustom<StoriesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(parent.inflateBinding(ItemStoryBinding::inflate))
+        return ViewHolder(
+            parent.inflateBinding(ItemStoryBinding::inflate)
+        )
     }
 
     override fun getItemCount(): Int = values.size
