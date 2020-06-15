@@ -48,7 +48,7 @@
             tools:srcCompat="@drawable/ic_baseline_more_vert_24" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/ivContent"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
@@ -67,7 +67,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/ivContent"
             app:srcCompat="@drawable/ic_heart" />
 
         <ImageView

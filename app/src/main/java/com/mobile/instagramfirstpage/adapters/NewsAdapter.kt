@@ -25,8 +25,10 @@ class NewsAdapter(val peaceOfNews: ArrayList<News>) :
 
     class NewsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val tvPageName = view.tvPageNameTop
+        private val ivContent = view.ivContent
         fun bind(news: News) {
             tvPageName.text = news.pageName
+
         }
     }
 }
