@@ -4,6 +4,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.mobile.instagramfirstpage.R
 import com.mobile.instagramfirstpage.databinding.ItemNewsContentBinding
 import com.mobile.instagramfirstpage.model.News
 import com.mobile.instagramfirstpage.utils.CommentUtil
@@ -39,6 +41,10 @@ class NewsAdapter(private val peaceOfNews: ArrayList<News>) :
             } else {
                 binding.tvComments.visibility = View.GONE
             }
+            Glide.with(binding.ivContent.context)
+                .load(news.linkImage)
+                .placeholder(R.drawable.ic_launcher_white)
+                .into(binding.ivContent)
         }
     }
 }

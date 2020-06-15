@@ -6,5 +6,6 @@ data class News(
     val aspectRatio: String,
     val pageName: String,
     val paragraph: String,
-    val quantityOfComments: Int
+    val quantityOfComments: Int,
+    val linkImage: String
 )
