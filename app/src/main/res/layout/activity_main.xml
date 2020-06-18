@@ -70,89 +70,83 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <HorizontalScrollView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:scrollbars="none">
+                android:background="@android:color/white"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/white"
-                    android:orientation="horizontal">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                    <LinearLayout
+                    <FrameLayout
+                        android:id="@+id/relativeLayoutStoryOwn"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:layout_height="wrap_content">
 
                         <FrameLayout
-                            android:id="@+id/relativeLayoutStoryOwn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
 
-                            <FrameLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content">
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/cardView"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_margin="8dp"
+                                app:cardCornerRadius="30dp"
+                                app:cardElevation="1dp">
 
-                                <androidx.cardview.widget.CardView
-                                    android:id="@+id/cardView"
+                                <ImageView
+                                    android:id="@+id/ivPagePhoto"
                                     android:layout_width="60dp"
                                     android:layout_height="60dp"
-                                    android:layout_margin="8dp"
-                                    app:cardCornerRadius="30dp"
-                                    app:cardElevation="1dp">
-
-                                    <ImageView
-                                        android:id="@+id/ivPagePhoto"
-                                        android:layout_width="60dp"
-                                        android:layout_height="60dp"
-                                        android:elevation="2dp"
-                                        android:scaleType="centerCrop"
-                                        android:src="@drawable/profile"
-                                        tools:ignore="ContentDescription" />
-                                </androidx.cardview.widget.CardView>
-                            </FrameLayout>
-
-                            <ImageView
-                                android:layout_width="15dp"
-                                android:layout_height="15dp"
-                                android:layout_gravity="bottom|end"
-                                android:layout_marginEnd="8dp"
-                                android:layout_marginBottom="8dp"
-                                android:src="@drawable/ic_baseline_add_circle_24"
-                                tools:ignore="ContentDescription" />
+                                    android:elevation="2dp"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/profile"
+                                    tools:ignore="ContentDescription" />
+                            </androidx.cardview.widget.CardView>
                         </FrameLayout>
 
-                        <TextView
-                            android:id="@+id/tvName"
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="@string/your_story"
-                            android:textAlignment="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="12sp"
-                            android:visibility="visible"
-                            tools:ignore="SmallSp" />
-                    </LinearLayout>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_gravity="bottom|end"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:src="@drawable/ic_baseline_add_circle_24"
+                            tools:ignore="ContentDescription" />
+                    </FrameLayout>
 
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerViewStories"
-                        android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="60dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:overScrollMode="never"
-                        android:scrollbars="horizontal"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        tools:itemCount="10"
-                        tools:listitem="@layout/item_story"
-                        tools:showIn="@layout/item_story" />
+                        android:layout_gravity="center"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="@string/your_story"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="12sp"
+                        android:visibility="visible"
+                        tools:ignore="SmallSp" />
                 </LinearLayout>
-            </HorizontalScrollView>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewStories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:overScrollMode="never"
+                    android:scrollbars="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="10"
+                    tools:listitem="@layout/item_story"
+                    tools:showIn="@layout/item_story" />
+            </LinearLayout>
 
             <View
                 android:id="@+id/divider"
