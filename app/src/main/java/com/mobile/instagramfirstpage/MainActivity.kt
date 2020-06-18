@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         val adapter2 = NewsAdapter(NewsDataSource.news())
         recyclerViewNews.layoutManager = layoutManager
         recyclerViewNews.adapter = adapter2
-
+            // todo
 
         val bottomNavigationMenuView: BottomNavigationMenuView = binding.bottomNavigation.getChildAt(0) as BottomNavigationMenuView
         val view = bottomNavigationMenuView.getChildAt(4)
