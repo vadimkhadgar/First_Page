@@ -3,8 +3,10 @@ package com.mobile.instagramfirstpage
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.mobile.instagramfirstpage.adapters.NewsAdapter
@@ -42,5 +44,15 @@ class MainActivity : AppCompatActivity() {
         val profileItem: View = LayoutInflater.from(view1.context).inflate(R.layout.menu_profile_layout, bottomNavigationItemView, false)
         bottomNavigationItemView.addView(profileItem)
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        val iv = findViewById<ImageView>(R.id.ivProfileBnv)
+        Glide.with(this)
+            .load("https://source.unsplash.com/random/800x800")
+            .placeholder(R.drawable.ic_launcher_white)
+            .into(iv)
     }
 }
