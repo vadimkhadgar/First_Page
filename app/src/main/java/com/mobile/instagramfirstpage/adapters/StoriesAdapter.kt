@@ -70,11 +70,16 @@ class StoriesAdapter :
     }
 
 
-    class ViewHolder private constructor(val binding: ItemStoryBinding) :
+    class ViewHolder private constructor(private val binding: ItemStoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Story) {
             binding.tvName.text = item.name
+            if (item.wasRead) {
+                binding.frameLayout.setBackgroundResource(R.drawable.background_rounded)
+            } else {
+                binding.frameLayout.setBackgroundResource(R.drawable.background_rounded_with_stroke)
+            }
         }
 
         companion object {

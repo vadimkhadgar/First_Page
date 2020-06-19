@@ -65,14 +65,16 @@ object StoryDataSource {
                 Story(
                     id = 1,
                     name = "Rosa",
-                    imageProfileUrl = "www.h.com"
+                    imageProfileUrl = "www.h.com",
+                    wasRead = true
                 )
             )
             add(
                 Story(
                     id = 1,
                     name = "Jerry",
-                    imageProfileUrl = "www.h.com"
+                    imageProfileUrl = "www.h.com",
+                    wasRead = true
                 )
             )
         }
