@@ -42,9 +42,9 @@ class HomeFragment : Fragment() {
         val adapter =
             StoriesAdapter()
         recyclerViewStories.adapter = adapter
-        StoryDataSource.stories()?.let {
+        homeViewModel.list.observe(viewLifecycleOwner, Observer {
             adapter.addHeaderAndSubmitList(it)
-        }
+        })
 
         val adapter2 = NewsAdapter(NewsDataSource.news())
         recyclerViewNews.layoutManager = layoutManager

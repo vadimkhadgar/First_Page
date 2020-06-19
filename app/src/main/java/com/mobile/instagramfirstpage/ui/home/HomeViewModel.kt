@@ -3,11 +3,13 @@ package com.mobile.instagramfirstpage.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.mobile.instagramfirstpage.data.StoryDataSource
+import com.mobile.instagramfirstpage.model.Story
 
 class HomeViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+    private val _list = MutableLiveData<List<Story>>().apply {
+        value = StoryDataSource.stories()
     }
-    val text: LiveData<String> = _text
+    val list: LiveData<List<Story>> = _list
 }
