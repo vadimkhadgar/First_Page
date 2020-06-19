@@ -3,19 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/homeFragment"
         android:icon="@drawable/selector_home_icon"
         android:title="@string/home" />
     <item
+        android:id="@+id/searchFragment"
         android:icon="@drawable/ic_search"
         android:title="@string/search" />
     <item
+        android:id="@+id/addFragment"
         android:icon="@drawable/ic_plus"
         android:title="@string/add" />
     <item
+        android:id="@+id/notificationsFragment"
         android:icon="@drawable/ic_heart"
         android:title="@string/notifications" />
     <item
-        android:id="@+id/bottomProfileItem"
+        android:id="@+id/profileFragment"
         android:title="@string/profile"
         android:actionLayout="@layout/menu_profile_layout"/>
 </menu>

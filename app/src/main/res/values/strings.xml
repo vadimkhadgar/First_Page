@@ -9,4 +9,6 @@
     <string name="_1_hour_ago">1 hour ago</string>
     <string name="liked_by_me">Liked by Me</string>
     <string name="live">Live</string>
+    <string name="title_activity_test">MainActivity</string>
+    <string name="title_activity_main2">MainActivity</string>
 </resources>
