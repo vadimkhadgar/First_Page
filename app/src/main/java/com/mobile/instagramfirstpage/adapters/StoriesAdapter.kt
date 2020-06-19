@@ -80,6 +80,11 @@ class StoriesAdapter :
             } else {
                 binding.frameLayout.setBackgroundResource(R.drawable.background_rounded_with_stroke)
             }
+            if (item.ifLiveStream) {
+                binding.tvLive.visibility = View.VISIBLE
+            } else {
+                binding.tvLive.visibility = View.GONE
+            }
         }
 
         companion object {

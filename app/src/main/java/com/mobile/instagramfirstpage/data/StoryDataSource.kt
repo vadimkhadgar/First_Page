@@ -15,8 +15,9 @@ object StoryDataSource {
             add(
                 Story(
                     id = 1,
-                    name = "Aunt",
-                    imageProfileUrl = "www.h.com"
+                    name = "foxnews",
+                    imageProfileUrl = "www.h.com",
+                    ifLiveStream = true
                 )
             )
             add(
