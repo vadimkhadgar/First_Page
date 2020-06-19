@@ -1,19 +1,23 @@
 package com.mobile.instagramfirstpage
 
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Adapter
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
+import com.mobile.instagramfirstpage.adapters.DataItem
 import com.mobile.instagramfirstpage.adapters.NewsAdapter
 import com.mobile.instagramfirstpage.adapters.StoriesAdapter
 import com.mobile.instagramfirstpage.data.NewsDataSource
 import com.mobile.instagramfirstpage.data.StoryDataSource
 import com.mobile.instagramfirstpage.databinding.ActivityMainBinding
+import com.mobile.instagramfirstpage.model.Story
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -30,14 +34,17 @@ class MainActivity : AppCompatActivity() {
 
         val layoutManager = LinearLayoutManager(this)
         val adapter =
-            StoriesAdapter(StoryDataSource.stories())
+            StoriesAdapter()
         recyclerViewStories.adapter = adapter
+        StoryDataSource.stories().let {
+            adapter.addHeaderAndSubmitList(it)
+        }
 
         val adapter2 = NewsAdapter(NewsDataSource.news())
         recyclerViewNews.layoutManager = layoutManager
         recyclerViewNews.adapter = adapter2
-            // todo
 
+        // For image in bottom navigation view
         val bottomNavigationMenuView: BottomNavigationMenuView = binding.bottomNavigation.getChildAt(0) as BottomNavigationMenuView
         val view = bottomNavigationMenuView.getChildAt(4)
         val bottomNavigationItemView = view as BottomNavigationItemView
