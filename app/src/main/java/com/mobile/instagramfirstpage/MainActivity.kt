@@ -14,12 +14,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.mobile.instagramfirstpage.databinding.ActivityMainBinding
 
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-//    private lateinit var appBarConfig: AppBarConfiguration
-
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -11,6 +11,7 @@ private typealias ViewHolderViewBindingInflater<VB> = (
     attachToParent: Boolean
 ) -> VB
 
+@Suppress("unused")
 abstract class BaseAdapterCustom<VH : RecyclerView.ViewHolder> : RecyclerView.Adapter<VH>() {
 
     fun <VB : ViewBinding> ViewGroup.inflateBinding(
