@@ -26,7 +26,7 @@ class NewsAdapter(private val peaceOfNews: ArrayList<News>) :
         holder.bind(peaceOfNews[position])
     }
 
-    class NewsViewHolder(private val binding: ItemNewsContentBinding) :
+     class NewsViewHolder(private val binding: ItemNewsContentBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(news: News) {
             binding.tvPageNameTop.text = news.pageName
@@ -45,6 +45,8 @@ class NewsAdapter(private val peaceOfNews: ArrayList<News>) :
                 .load(news.linkImage)
                 .placeholder(R.drawable.ic_launcher_white)
                 .into(binding.ivContent)
+
+
         }
     }
 }

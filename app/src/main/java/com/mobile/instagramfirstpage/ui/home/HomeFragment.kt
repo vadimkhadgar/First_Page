@@ -13,6 +13,7 @@ import com.mobile.instagramfirstpage.R
 import com.mobile.instagramfirstpage.adapters.NewsAdapter
 import com.mobile.instagramfirstpage.adapters.StoriesAdapter
 import com.mobile.instagramfirstpage.data.NewsDataSource
+import com.mobile.instagramfirstpage.utils.ViewTracker
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
@@ -44,5 +45,12 @@ class HomeFragment : Fragment() {
         val adapter2 = NewsAdapter(NewsDataSource.news())
         recyclerViewNews.layoutManager = layoutManager
         recyclerViewNews.adapter = adapter2
+
+        ViewTracker(recyclerViewNews).startTracking()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        ViewTracker(recyclerViewNews).stopTracking()
     }
 }
