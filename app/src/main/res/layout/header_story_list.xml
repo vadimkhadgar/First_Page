@@ -24,7 +24,7 @@
                 app:cardElevation="1dp">
 
                 <ImageView
-                    android:id="@+id/ivPagePhoto"
+                    android:id="@+id/ivPagePhotoHeader"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:elevation="2dp"
