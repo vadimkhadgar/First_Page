@@ -13,6 +13,9 @@ import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.mobile.instagramfirstpage.databinding.ActivityMainBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -49,10 +52,12 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        val iv = findViewById<ImageView>(R.id.ivProfileBnv)
-        Glide.with(this)
-            .load("https://source.unsplash.com/random/800x800")
-            .placeholder(R.drawable.ic_launcher_white)
-            .into(iv)
+        CoroutineScope(Dispatchers.Main).launch {
+            val iv = findViewById<ImageView>(R.id.ivProfileBnv)
+            Glide.with(this@MainActivity)
+                .load("https://source.unsplash.com/random/100x100")
+                .placeholder(R.drawable.ic_launcher_white)
+                .into(iv)
+        }
     }
 }

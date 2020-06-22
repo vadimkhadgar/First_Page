@@ -9,10 +9,15 @@ import com.mobile.instagramfirstpage.R
 import com.mobile.instagramfirstpage.databinding.ItemNewsContentBinding
 import com.mobile.instagramfirstpage.model.News
 import com.mobile.instagramfirstpage.utils.CommentUtil
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class NewsAdapter(private val peaceOfNews: ArrayList<News>) :
     BaseAdapterCustom<NewsAdapter.NewsViewHolder>() {
+
+    private val adapterScope = CoroutineScope(Dispatchers.Unconfined)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         return NewsViewHolder(
@@ -26,26 +31,30 @@ class NewsAdapter(private val peaceOfNews: ArrayList<News>) :
         holder.bind(peaceOfNews[position])
     }
 
-     class NewsViewHolder(private val binding: ItemNewsContentBinding) :
+    inner class NewsViewHolder(private val binding: ItemNewsContentBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(news: News) {
-            binding.tvPageNameTop.text = news.pageName
-            binding.tvPageNameBottom.text = news.pageName
-            // ImageContent Ratio
-            val set = ConstraintSet()
-            set.clone(binding.layout)
-            set.setDimensionRatio(binding.ivContent.id, news.aspectRatio)
-            set.applyTo(binding.layout)
-            if (news.quantityOfComments > 0) {
-                binding.tvComments.text = CommentUtil.intCommentToString(news.quantityOfComments)
-            } else {
-                binding.tvComments.visibility = View.GONE
+            adapterScope.launch {
+                binding.tvPageNameTop.text = news.pageName
+                binding.tvPageNameBottom.text = news.pageName
+                // ImageContent Ratio
+                val set = ConstraintSet()
+                set.clone(binding.layout)
+                set.setDimensionRatio(binding.ivContent.id, news.aspectRatio)
+                set.applyTo(binding.layout)
+                if (news.quantityOfComments > 0) {
+                    binding.tvComments.text =
+                        CommentUtil.intCommentToString(news.quantityOfComments)
+                } else {
+                    binding.tvComments.visibility = View.GONE
+                }
             }
-            Glide.with(binding.ivContent.context)
-                .load(news.linkImage)
-                .placeholder(R.drawable.ic_launcher_white)
-                .into(binding.ivContent)
-
+            adapterScope.launch {
+                Glide.with(binding.ivContent.context)
+                    .load(news.linkImage)
+                    .placeholder(R.drawable.ic_launcher_white)
+                    .into(binding.ivContent)
+            }
 
         }
     }

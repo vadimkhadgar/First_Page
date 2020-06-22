@@ -72,18 +72,20 @@ class StoriesAdapter :
 
     class ViewHolder private constructor(private val binding: ItemStoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
+        private val adapterScope = CoroutineScope(Dispatchers.Default)
         fun bind(item: Story) {
-            binding.tvName.text = item.name
-            if (item.wasRead) {
-                binding.frameLayout.setBackgroundResource(R.drawable.background_rounded)
-            } else {
-                binding.frameLayout.setBackgroundResource(R.drawable.background_rounded_with_stroke)
-            }
-            if (item.ifLiveStream) {
-                binding.tvLive.visibility = View.VISIBLE
-            } else {
-                binding.tvLive.visibility = View.GONE
+            adapterScope.launch {
+                binding.tvName.text = item.name
+                if (item.wasRead) {
+                    binding.frameLayout.setBackgroundResource(R.drawable.background_rounded)
+                } else {
+                    binding.frameLayout.setBackgroundResource(R.drawable.background_rounded_with_stroke)
+                }
+                if (item.ifLiveStream) {
+                    binding.tvLive.visibility = View.VISIBLE
+                } else {
+                    binding.tvLive.visibility = View.GONE
+                }
             }
         }
 
