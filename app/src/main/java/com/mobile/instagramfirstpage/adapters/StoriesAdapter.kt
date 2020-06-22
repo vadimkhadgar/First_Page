@@ -43,6 +43,10 @@ class StoriesAdapter :
                 val storyItem = getItem(position) as DataItem.StoryItem
                 holder.bind(storyItem.story)
             }
+            is TextViewHolder -> {
+                val yourStoryItem = DataItem.Header
+                holder.bind(yourStoryItem)
+            }
         }
     }
 
@@ -62,6 +66,11 @@ class StoriesAdapter :
     }
 
     class TextViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
+        fun bind(item: DataItem.Header) {
+            // TODO: 22.06.2020
+        }
+
         companion object {
             fun from(parent: ViewGroup): TextViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
@@ -88,7 +97,10 @@ class StoriesAdapter :
                 } else {
                     binding.tvLive.visibility = View.GONE
                 }
-                val link = "https://source.unsplash.com/random/15${Random.nextInt(0, 9)}x15${Random.nextInt(0, 9)}"
+                val link = "https://source.unsplash.com/random/15${Random.nextInt(
+                    0,
+                    9
+                )}x15${Random.nextInt(0, 9)}"
                 Glide.with(binding.ivPagePhoto.context)
                     .load(link)
                     .placeholder(R.drawable.ic_launcher_white)
