@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.mobile.instagramfirstpage.R
 import com.mobile.instagramfirstpage.databinding.ItemStoryBinding
 import com.mobile.instagramfirstpage.model.Story
@@ -14,6 +15,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlin.random.Random
 
 private const val ITEM_VIEW_TYPE_HEADER = 0
 private const val ITEM_VIEW_TYPE_ITEM = 1
@@ -72,7 +74,7 @@ class StoriesAdapter :
 
     class ViewHolder private constructor(private val binding: ItemStoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        private val adapterScope = CoroutineScope(Dispatchers.Default)
+        private val adapterScope = CoroutineScope(Dispatchers.Unconfined)
         fun bind(item: Story) {
             adapterScope.launch {
                 binding.tvName.text = item.name
@@ -86,6 +88,11 @@ class StoriesAdapter :
                 } else {
                     binding.tvLive.visibility = View.GONE
                 }
+                val link = "https://source.unsplash.com/random/15${Random.nextInt(0, 9)}x15${Random.nextInt(0, 9)}"
+                Glide.with(binding.ivPagePhoto.context)
+                    .load(link)
+                    .placeholder(R.drawable.ic_launcher_white)
+                    .into(binding.ivPagePhoto)
             }
         }
 

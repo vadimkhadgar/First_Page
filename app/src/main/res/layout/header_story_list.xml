@@ -55,7 +55,5 @@
         android:text="@string/your_story"
         android:textAlignment="center"
         android:textColor="@android:color/black"
-        android:textSize="12sp"
-        android:visibility="visible"
-        tools:ignore="SmallSp" />
+        android:textSize="12sp" />
 </LinearLayout>
