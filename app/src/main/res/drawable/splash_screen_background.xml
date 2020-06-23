@@ -3,6 +3,8 @@
     android:opacity="opaque">
     <item android:drawable="@android:color/darker_gray" />
     <item
+        android:width="70dp"
+        android:height="70dp"
         android:drawable="@drawable/ic_android_green_24dp"
-        android:gravity="center" />
+        android:gravity="center_horizontal|center_vertical" />
 </layer-list>
