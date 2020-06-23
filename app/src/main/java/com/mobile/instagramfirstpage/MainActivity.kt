@@ -43,15 +43,6 @@ class MainActivity : AppCompatActivity() {
         val profileItem: View = LayoutInflater.from(view1.context)
             .inflate(R.layout.menu_profile_layout, bottomNavigationItemView, false)
         bottomNavigationItemView.addView(profileItem)
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        return findNavController(R.id.mainContainer).navigateUp() || super.onSupportNavigateUp()
-
-    }
-
-    override fun onStart() {
-        super.onStart()
 
         CoroutineScope(Dispatchers.Main).launch {
             val iv = findViewById<ImageView>(R.id.ivProfileBnv)
@@ -60,5 +51,10 @@ class MainActivity : AppCompatActivity() {
                 .placeholder(R.drawable.ic_launcher_white)
                 .into(iv)
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return findNavController(R.id.mainContainer).navigateUp() || super.onSupportNavigateUp()
+
     }
 }
