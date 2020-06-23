@@ -13,7 +13,8 @@ object NewsDataSource {
                     "Something happened",
                     1,
                     "https://source.unsplash.com/random/900x900",
-                    true
+                    true,
+                    "https://source.unsplash.com/random/151x151"
                 )
             )
             add(
@@ -64,7 +65,8 @@ object NewsDataSource {
                     "Something happened",
                     216,
                     "https://source.unsplash.com/random/1080x1920",
-                    true
+                    true,
+                    "https://source.unsplash.com/random/151x151"
                 )
             )
             add(
@@ -75,7 +77,8 @@ object NewsDataSource {
                     "Something happened",
                     1202,
                     "https://source.unsplash.com/random/700x700",
-                    true
+                    true,
+                    "https://source.unsplash.com/random/151x151"
                 )
             )
             add(
@@ -96,7 +99,8 @@ object NewsDataSource {
                     "Something happened",
                     16,
                     "https://source.unsplash.com/random/600x1000",
-                    true
+                    true,
+                    "https://source.unsplash.com/random/151x151"
                 )
             )
         }

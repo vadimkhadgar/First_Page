@@ -60,6 +60,12 @@ class NewsAdapter(private val peaceOfNews: ArrayList<News>) :
                     .placeholder(R.drawable.ic_launcher_white)
                     .into(binding.ivContent)
             }
+            adapterScope.launch {
+                Glide.with(binding.ivPagePhoto.context)
+                    .load(news.linkImage)
+                    .placeholder(R.drawable.ic_launcher_white)
+                    .into(binding.ivPagePhoto)
+            }
 
         }
     }

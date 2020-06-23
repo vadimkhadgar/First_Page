@@ -17,7 +17,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import kotlin.random.Random
 
 private const val ITEM_VIEW_TYPE_HEADER = 0
 private const val ITEM_VIEW_TYPE_ITEM = 1
@@ -104,11 +103,8 @@ class StoriesAdapter :
                 } else {
                     binding.tvLive.visibility = View.GONE
                 }
-                // Из-за Random() возможна прогрузка новых картинок при скролле туда и обратно.
-                val randomResolution = "15${Random.nextInt(0, 9)}x15${Random.nextInt(0, 9)}"
-                val link = "https://source.unsplash.com/random/$randomResolution"
                 Glide.with(binding.ivPagePhoto.context)
-                    .load(link)
+                    .load(item.imageProfileUrl)
                     .placeholder(R.drawable.ic_launcher_white)
                     .into(binding.ivPagePhoto)
             }
