@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.mobile.instagramfirstpage.R
 import com.mobile.instagramfirstpage.databinding.HeaderStoryListBinding
 import com.mobile.instagramfirstpage.databinding.ItemStoryBinding
+import com.mobile.instagramfirstpage.model.DataItem
 import com.mobile.instagramfirstpage.model.Story
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -132,16 +133,4 @@ class StoriesDiffCallback : DiffUtil.ItemCallback<DataItem>() {
     override fun areContentsTheSame(oldItem: DataItem, newItem: DataItem): Boolean {
         return oldItem == newItem
     }
-}
-
-sealed class DataItem {
-    data class StoryItem(val story: Story) : DataItem() {
-        override val id = story.id
-    }
-
-    object Header : DataItem() {
-        override val id = Long.MIN_VALUE
-    }
-
-    abstract val id: Long
 }
