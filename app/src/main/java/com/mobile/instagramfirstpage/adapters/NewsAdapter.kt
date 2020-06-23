@@ -74,8 +74,8 @@ class NewsAdapter(private val peaceOfNews: ArrayList<News>) :
                     SpannableString(likes)
                 wordToSpan1.setSpan(
                     android.text.style.StyleSpan(android.graphics.Typeface.BOLD),
-                    0,
                     8,
+                    likes.length,
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
                 binding.textView2.text = wordToSpan1
