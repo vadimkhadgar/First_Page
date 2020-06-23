@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(R.style.AppTheme)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view1 = binding.root
         setContentView(view1)

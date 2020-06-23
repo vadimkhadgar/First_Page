@@ -8,4 +8,12 @@
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
+    <style name="LaunchTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen_background</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:navigationBarColor">@android:color/darker_gray</item>
+    </style>
 </resources>
