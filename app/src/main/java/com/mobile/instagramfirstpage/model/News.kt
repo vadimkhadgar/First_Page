@@ -7,5 +7,6 @@ data class News(
     val pageName: String,
     val paragraph: String,
     val quantityOfComments: Int,
-    val linkImage: String
+    val linkImage: String,
+    var ifHasStory: Boolean = false
 )

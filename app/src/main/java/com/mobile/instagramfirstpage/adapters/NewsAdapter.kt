@@ -48,6 +48,11 @@ class NewsAdapter(private val peaceOfNews: ArrayList<News>) :
                 } else {
                     binding.tvComments.visibility = View.GONE
                 }
+                if (news.ifHasStory) {
+                    binding.flWrapper.setBackgroundResource(R.drawable.background_rounded_with_stroke_small)
+                } else {
+                    binding.flWrapper.setBackgroundResource(R.drawable.background_rounded_small)
+                }
             }
             adapterScope.launch {
                 Glide.with(binding.ivContent.context)
