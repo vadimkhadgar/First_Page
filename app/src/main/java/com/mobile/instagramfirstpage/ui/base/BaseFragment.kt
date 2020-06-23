@@ -14,11 +14,8 @@ private typealias FragmentViewBindingInflater<VB> = (
     attachToParent: Boolean
 ) -> VB
 
-
 abstract class BaseFragment<VB : ViewBinding>(
-
     private val bindingInflater: FragmentViewBindingInflater<VB>
-
 ) : Fragment() {
 
     private var _binding: VB? = null
