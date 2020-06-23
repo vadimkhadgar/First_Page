@@ -44,7 +44,7 @@ class StoriesAdapter :
                 val storyItem = getItem(position) as DataItem.StoryItem
                 holder.bind(storyItem.story)
             }
-            is TextViewHolder -> {
+            is HeaderViewHolder -> {
                 val yourStoryItem = DataItem.Header
                 holder.bind(yourStoryItem)
             }
@@ -53,7 +53,7 @@ class StoriesAdapter :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-            ITEM_VIEW_TYPE_HEADER -> TextViewHolder.from(parent)
+            ITEM_VIEW_TYPE_HEADER -> HeaderViewHolder.from(parent)
             ITEM_VIEW_TYPE_ITEM -> ViewHolder.from(parent)
             else -> throw ClassCastException("Unknown viewType $viewType")
         }
@@ -66,7 +66,7 @@ class StoriesAdapter :
         }
     }
 
-    class TextViewHolder(private val binding: HeaderStoryListBinding) :
+    class HeaderViewHolder(private val binding: HeaderStoryListBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: DataItem.Header) {
@@ -79,14 +79,13 @@ class StoriesAdapter :
         }
 
         companion object {
-            fun from(parent: ViewGroup): TextViewHolder {
+            fun from(parent: ViewGroup): HeaderViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = HeaderStoryListBinding.inflate(layoutInflater, parent, false)
-                return TextViewHolder(binding)
+                return HeaderViewHolder(binding)
             }
         }
     }
-
 
     class ViewHolder private constructor(private val binding: ItemStoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
