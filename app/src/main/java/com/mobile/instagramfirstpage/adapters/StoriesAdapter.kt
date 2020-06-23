@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.mobile.instagramfirstpage.R
+import com.mobile.instagramfirstpage.databinding.HeaderStoryListBinding
 import com.mobile.instagramfirstpage.databinding.ItemStoryBinding
 import com.mobile.instagramfirstpage.model.Story
 import kotlinx.coroutines.CoroutineScope
@@ -65,17 +66,23 @@ class StoriesAdapter :
         }
     }
 
-    class TextViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class TextViewHolder(private val binding: HeaderStoryListBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: DataItem.Header) {
-            // TODO: 22.06.2020
+            CoroutineScope(Dispatchers.Unconfined).launch {
+                Glide.with(binding.ivPagePhotoHeader.context)
+                    .load("https://source.unsplash.com/random/100x100")
+                    .placeholder(R.drawable.ic_launcher_white)
+                    .into(binding.ivPagePhotoHeader)
+            }
         }
 
         companion object {
             fun from(parent: ViewGroup): TextViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val view = layoutInflater.inflate(R.layout.header_story_list, parent, false)
-                return TextViewHolder(view)
+                val binding = HeaderStoryListBinding.inflate(layoutInflater, parent, false)
+                return TextViewHolder(binding)
             }
         }
     }
@@ -83,9 +90,8 @@ class StoriesAdapter :
 
     class ViewHolder private constructor(private val binding: ItemStoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        private val adapterScope = CoroutineScope(Dispatchers.Unconfined)
         fun bind(item: Story) {
-            adapterScope.launch {
+            CoroutineScope(Dispatchers.Unconfined).launch {
                 binding.tvName.text = item.name
                 if (item.wasRead) {
                     binding.frameLayout.setBackgroundResource(R.drawable.background_rounded)
@@ -97,10 +103,9 @@ class StoriesAdapter :
                 } else {
                     binding.tvLive.visibility = View.GONE
                 }
-                val link = "https://source.unsplash.com/random/15${Random.nextInt(
-                    0,
-                    9
-                )}x15${Random.nextInt(0, 9)}"
+                // Из-за Random() возможна прогрузка новых картинок при скролле туда и обратно.
+                val randomResolution = "15${Random.nextInt(0, 9)}x15${Random.nextInt(0, 9)}"
+                val link = "https://source.unsplash.com/random/$randomResolution"
                 Glide.with(binding.ivPagePhoto.context)
                     .load(link)
                     .placeholder(R.drawable.ic_launcher_white)
