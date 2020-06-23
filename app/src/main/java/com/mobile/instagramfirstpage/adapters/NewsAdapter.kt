@@ -66,7 +66,6 @@ class NewsAdapter(private val peaceOfNews: ArrayList<News>) :
                     .placeholder(R.drawable.ic_launcher_white)
                     .into(binding.ivPagePhoto)
             }
-
         }
     }
 }
