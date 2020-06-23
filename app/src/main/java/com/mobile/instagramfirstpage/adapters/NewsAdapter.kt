@@ -1,5 +1,7 @@
 package com.mobile.instagramfirstpage.adapters
 
+import android.text.Spannable
+import android.text.SpannableString
 import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintSet
@@ -53,6 +55,30 @@ class NewsAdapter(private val peaceOfNews: ArrayList<News>) :
                 } else {
                     binding.flWrapper.setBackgroundResource(R.drawable.background_rounded_small)
                 }
+
+                // Create spannable text like in Istagram
+                val topic = "${news.pageName} ${news.paragraph}"
+                val wordToSpan: Spannable =
+                    SpannableString(topic)
+                wordToSpan.setSpan(
+                    android.text.style.StyleSpan(android.graphics.Typeface.BOLD),
+                    0,
+                    news.pageName.length,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+                binding.tvPageNameBottom.text = wordToSpan
+
+                // Create spannable text like in Istagram
+                val likes = binding.root.context.getString(R.string.liked_by_me)
+                val wordToSpan1: Spannable =
+                    SpannableString(likes)
+                wordToSpan1.setSpan(
+                    android.text.style.StyleSpan(android.graphics.Typeface.BOLD),
+                    0,
+                    8,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+                binding.textView2.text = wordToSpan1
             }
             adapterScope.launch {
                 Glide.with(binding.ivContent.context)
