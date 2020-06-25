@@ -26,7 +26,7 @@ import kotlinx.coroutines.withContext
 private const val ITEM_VIEW_TYPE_HEADER = 0
 private const val ITEM_VIEW_TYPE_ITEM = 1
 
-class NewsAdapter(val list: List<Story>?) :
+class NewsAdapter(private val list: List<Story>?) :
     ListAdapter<DataNewsItem, RecyclerView.ViewHolder>(NewsDiffCallback()) {
 
     private val adapterScope = CoroutineScope(Dispatchers.Unconfined)
