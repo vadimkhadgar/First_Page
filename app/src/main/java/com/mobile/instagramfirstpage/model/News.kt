@@ -2,6 +2,7 @@ package com.mobile.instagramfirstpage.model
 
 // type: 1--photo, 2--video
 data class News(
+    val id: Long,
     val typeContent: Int,
     val aspectRatio: String,
     val pageName: String,

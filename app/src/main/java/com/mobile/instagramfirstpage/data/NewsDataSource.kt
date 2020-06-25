@@ -8,6 +8,7 @@ object NewsDataSource {
             add(
                 News(
                     1,
+                    1,
                     "1:1",
                     "foxnews",
                     "Something happened",
@@ -20,6 +21,7 @@ object NewsDataSource {
             add(
                 News(
                     1,
+                    1,
                     "16:9",
                     "CNN",
                     "Something happened",
@@ -29,6 +31,7 @@ object NewsDataSource {
             )
             add(
                 News(
+                    1,
                     2,
                     "4:3",
                     "CNN",
@@ -39,6 +42,7 @@ object NewsDataSource {
             )
             add(
                 News(
+                    1,
                     2,
                     "16:9",
                     "Sister",
@@ -50,6 +54,7 @@ object NewsDataSource {
             add(
                 News(
                     1,
+                    1,
                     "1:1",
                     "Sister",
                     "Something happened",
@@ -59,6 +64,7 @@ object NewsDataSource {
             )
             add(
                 News(
+                    1,
                     2,
                     "9:16",
                     "foxnews",
@@ -72,6 +78,7 @@ object NewsDataSource {
             add(
                 News(
                     1,
+                    1,
                     "1:1",
                     "foxnews",
                     "Something happened",
@@ -84,6 +91,7 @@ object NewsDataSource {
             add(
                 News(
                     1,
+                    1,
                     "1:1",
                     "Brother",
                     "Something happened",
@@ -93,6 +101,7 @@ object NewsDataSource {
             )
             add(
                 News(
+                    1,
                     1,
                     "3:5",
                     "foxnews",
