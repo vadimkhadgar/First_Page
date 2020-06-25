@@ -32,7 +32,7 @@ class StoriesAdapter :
                 null -> listOf(DataItem.Header)
                 else -> listOf(DataItem.Header) + list.map { DataItem.StoryItem(it) }
             }
-            withContext(Dispatchers.Default) {
+            withContext(Dispatchers.Main) {
                 submitList(items)
             }
         }
@@ -70,7 +70,7 @@ class StoriesAdapter :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: DataItem.Header) {
-            CoroutineScope(Dispatchers.Unconfined).launch {
+            CoroutineScope(Dispatchers.Main).launch {
                 Glide.with(binding.ivPagePhotoHeader.context)
                     .load("https://source.unsplash.com/random/100x100")
                     .placeholder(R.drawable.ic_launcher_white)
@@ -90,7 +90,7 @@ class StoriesAdapter :
     class StoriesViewHolder private constructor(private val binding: ItemStoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Story) {
-            CoroutineScope(Dispatchers.Unconfined).launch {
+            CoroutineScope(Dispatchers.Main).launch {
                 binding.tvName.text = item.name
                 if (item.wasRead) {
                     binding.frameLayout.setBackgroundResource(R.drawable.background_rounded)

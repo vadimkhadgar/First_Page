@@ -75,11 +75,12 @@ class NewsAdapter(private val list: List<Story>?) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: DataNewsItem.HeaderNews, list: List<Story>?) {
-            val adapter =
-                StoriesAdapter()
-            binding.recyclerViewStories.adapter = adapter
-            adapter.addHeaderAndSubmitList(list)
-
+            CoroutineScope(Dispatchers.Main).launch {
+                val adapter =
+                    StoriesAdapter()
+                binding.recyclerViewStories.adapter = adapter
+                adapter.addHeaderAndSubmitList(list)
+            }
         }
 
         companion object {
@@ -94,7 +95,7 @@ class NewsAdapter(private val list: List<Story>?) :
     class NewsViewHolder(private val binding: ItemNewsContentBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(news: News) {
-            CoroutineScope(Dispatchers.Default).launch {
+            CoroutineScope(Dispatchers.Main).launch {
                 binding.tvPageNameTop.text = news.pageName
                 binding.tvPageNameBottom.text = news.pageName
                 // ImageContent Ratio
