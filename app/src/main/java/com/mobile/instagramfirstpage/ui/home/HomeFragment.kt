@@ -3,7 +3,8 @@ package com.mobile.instagramfirstpage.ui.home
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.RelativeLayout
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.get
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,7 +14,6 @@ import com.mobile.instagramfirstpage.R
 import com.mobile.instagramfirstpage.adapters.NewsAdapter
 import com.mobile.instagramfirstpage.databinding.FragmentHomeBinding
 import com.mobile.instagramfirstpage.ui.base.BaseFragment
-import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
 
@@ -38,6 +38,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             })
         })
 
+        // TODO: 26.06.2020
         binding.recyclerViewNews.addOnScrollListener(
             object : RecyclerView.OnScrollListener() {
 
@@ -61,10 +62,25 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                     if (!recyclerView.isComputingLayout) {
                         when (b) {
                             4 -> {
-                                adapterNews.notifyItemChanged(b)
-                                val view = recyclerViewNews.getChildAt(b)
-                                view.findViewById<RelativeLayout>(R.id.relativeLayout).visibility =
+                                recyclerView[0].findViewById<ConstraintLayout>(R.id.constrainLayoutMoving).visibility =
                                     View.GONE
+                                Log.d(
+                                    "rtrt",
+                                    recyclerView.childCount.toString()
+                                )
+                                // LayoutInflater.from(requireContext()).inflate(R.layout.item_news_content, null)).toString()
+                            }
+                            3 -> {
+                                // recyclerView[2].findViewById<ConstraintLayout>(R.id.constrainLayoutMoving).visibility =
+                                // View.GONE
+                        //        Log.d("rtrt", recyclerView.scrollState.toString())
+
+                            }
+                            5 -> {
+                                // recyclerView[2].findViewById<ConstraintLayout>(R.id.constrainLayoutMoving).visibility =
+                                // View.GONE
+                                Log.d("rtrt", recyclerView.scrollState.toString())
+
                             }
                         }
                     }
@@ -72,6 +88,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
                 override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                     super.onScrollStateChanged(recyclerView, newState)
+                    adapterNews.notifyDataSetChanged()
                 }
             })
 
