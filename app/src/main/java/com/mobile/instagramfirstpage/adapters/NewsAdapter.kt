@@ -99,8 +99,6 @@ class NewsAdapter(private val list: List<Story>?) :
 
         fun bind(news: News) {
 
-            // binding.relativeLayout.visibility = View.GONE
-
             CoroutineScope(Dispatchers.Main).launch {
                 binding.tvPageNameTop.text = news.pageName
                 binding.tvPageNameBottom.text = news.pageName
