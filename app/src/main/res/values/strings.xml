@@ -11,4 +11,7 @@
     <string name="live">live</string>
     <string name="title_activity_test">MainActivity</string>
     <string name="title_activity_main2">MainActivity</string>
+    <string name="add_comment">Add comment…</string>
+    <string name="quantity_of_comments">Quantity of comments</string>
+    <string name="pagename">PageName</string>
 </resources>

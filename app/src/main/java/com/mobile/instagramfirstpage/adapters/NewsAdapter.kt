@@ -30,6 +30,7 @@ class NewsAdapter(private val list: List<Story>?) :
     ListAdapter<DataNewsItem, RecyclerView.ViewHolder>(NewsDiffCallback()) {
 
     private val adapterScope = CoroutineScope(Dispatchers.Unconfined)
+    private var parentMain: ViewGroup? = null
 
     fun addHeaderAndSubmitList(list: List<News>?) {
         adapterScope.launch {
@@ -57,6 +58,7 @@ class NewsAdapter(private val list: List<Story>?) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        parentMain = parent
         return when (viewType) {
             ITEM_VIEW_TYPE_HEADER -> HeaderViewHolder.from(parent)
             ITEM_VIEW_TYPE_ITEM -> NewsViewHolder.from(parent)
@@ -94,7 +96,11 @@ class NewsAdapter(private val list: List<Story>?) :
 
     class NewsViewHolder(private val binding: ItemNewsContentBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
         fun bind(news: News) {
+
+            // binding.relativeLayout.visibility = View.GONE
+
             CoroutineScope(Dispatchers.Main).launch {
                 binding.tvPageNameTop.text = news.pageName
                 binding.tvPageNameBottom.text = news.pageName
