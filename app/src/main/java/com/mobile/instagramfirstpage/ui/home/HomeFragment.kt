@@ -55,17 +55,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                     val v =
                         (recyclerView.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
                     Log.e(
-                        "rtrt",
+                        "TestShow",
                         "onScrolled:\n full visible last $t\n full first visible $b\n partially visible last $c\n partially visible first $v"
                     )
-                    Log.e("rtrt", recyclerView.isComputingLayout.toString())
+                    Log.e("TestShow", recyclerView.isComputingLayout.toString())
                     if (!recyclerView.isComputingLayout) {
                         when (b) {
                             4 -> {
                                 recyclerView[0].findViewById<ConstraintLayout>(R.id.constrainLayoutMoving).visibility =
                                     View.GONE
                                 Log.d(
-                                    "rtrt",
+                                    "TestShow",
                                     recyclerView.childCount.toString()
                                 )
                                 // LayoutInflater.from(requireContext()).inflate(R.layout.item_news_content, null)).toString()
@@ -79,7 +79,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                             5 -> {
                                 // recyclerView[2].findViewById<ConstraintLayout>(R.id.constrainLayoutMoving).visibility =
                                 // View.GONE
-                                Log.d("rtrt", recyclerView.scrollState.toString())
+                                Log.d("TestShow", recyclerView.scrollState.toString())
 
                             }
                         }
