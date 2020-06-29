@@ -17,7 +17,7 @@ import com.mobile.instagramfirstpage.databinding.ItemNewsContentBinding
 import com.mobile.instagramfirstpage.model.DataNewsItem
 import com.mobile.instagramfirstpage.model.News
 import com.mobile.instagramfirstpage.model.Story
-import com.mobile.instagramfirstpage.utils.CommentUtil
+import com.mobile.instagramfirstpage.utils.commentUtil
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -109,7 +109,7 @@ class NewsAdapter(private val list: List<Story>?) :
                 set.applyTo(binding.layout)
                 if (news.quantityOfComments > 0) {
                     binding.tvComments.text =
-                        CommentUtil.intCommentToString(news.quantityOfComments)
+                        (news.quantityOfComments).commentUtil()
                 } else {
                     binding.tvComments.visibility = View.GONE
                 }
