@@ -118,6 +118,11 @@ class NewsAdapter(private val list: List<Story>?) :
                 } else {
                     binding.flWrapper.setBackgroundResource(R.drawable.background_rounded_small)
                 }
+                if (news.turnOnEditText) {
+                    binding.constrainLayoutMoving.visibility = View.VISIBLE
+                } else {
+                    binding.constrainLayoutMoving.visibility = View.GONE
+                }
 
                 // Create spannable text like in Istagram
                 val topic = "${news.pageName} ${news.paragraph}"

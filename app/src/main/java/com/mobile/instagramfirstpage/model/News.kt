@@ -10,5 +10,6 @@ data class News(
     val quantityOfComments: Int,
     val linkImage: String,
     var ifHasStory: Boolean = false,
-    var linkImageProfile: String = "https://source.unsplash.com/random/50x50"
+    var linkImageProfile: String = "https://source.unsplash.com/random/50x50",
+    var turnOnEditText: Boolean = false
 )
